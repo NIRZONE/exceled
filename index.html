@@ -1,0 +1,2979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Master Tutorial - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .shortcut-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .shortcut-key {
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: monospace;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            border: 2px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Excel Master Tutorial</h1>
+            <p class="tagline">Your Complete Guide to Microsoft Excel Mastery</p>
+        </header>
+
+        <nav>
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search for formulas, shortcuts, features...">
+            <div class="nav-grid">
+                <button class="nav-btn" onclick="showSection('basics')">Getting Started</button>
+                <button class="nav-btn" onclick="showSection('interface')">Interface & Navigation</button>
+                <button class="nav-btn" onclick="showSection('shortcuts')">Keyboard Shortcuts</button>
+                <button class="nav-btn" onclick="showSection('formatting')">Formatting</button>
+                <button class="nav-btn" onclick="showSection('formulas')">Formulas & Functions</button>
+                <button class="nav-btn" onclick="showSection('data')">Data Management</button>
+                <button class="nav-btn" onclick="showSection('charts')">Charts & Graphs</button>
+                <button class="nav-btn" onclick="showSection('pivot')">Pivot Tables</button>
+                <button class="nav-btn" onclick="showSection('advanced')">Advanced Features</button>
+                <button class="nav-btn" onclick="showSection('macros')">Macros & VBA</button>
+                <button class="nav-btn" onclick="showSection('tips')">Pro Tips & Tricks</button>
+            </div>
+        </nav>
+
+        <div id="basics" class="content-section active">
+            <h2>🚀 Getting Started with Excel</h2>
+            
+            <h3>What is Excel?</h3>
+            <p>Microsoft Excel is a powerful spreadsheet application used for data organization, analysis, calculation, and visualization. It's widely used in business, finance, education, and personal productivity.</p>
+
+            <h3>Basic Terminology</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Workbook</h4>
+                    <p>An Excel file containing one or more worksheets</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Worksheet</h4>
+                    <p>A single spreadsheet page within a workbook</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Cell</h4>
+                    <p>The intersection of a row and column (e.g., A1, B5)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Range</h4>
+                    <p>A group of cells (e.g., A1:C10)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Formula</h4>
+                    <p>An equation that performs calculations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Function</h4>
+                    <p>Pre-built formulas for common tasks</p>
+                </div>
+            </div>
+
+            <h3>Creating Your First Workbook</h3>
+            <ol>
+                <li>Open Excel application</li>
+                <li>Click "Blank Workbook" or press Ctrl+N</li>
+                <li>You'll see a grid of cells labeled with columns (A, B, C...) and rows (1, 2, 3...)</li>
+                <li>Click any cell to select it</li>
+                <li>Type data and press Enter to move to the next cell</li>
+            </ol>
+
+            <h3>Saving Your Work</h3>
+            <div class="formula-box">
+                <strong>Save As:</strong> Ctrl+Shift+S or F12<br>
+                <strong>Quick Save:</strong> Ctrl+S<br>
+                <strong>File Formats:</strong> .xlsx (default), .xlsm (with macros), .csv (comma-separated)
+            </div>
+        </div>
+
+        <div id="interface" class="content-section">
+            <h2>🖥️ Interface & Navigation</h2>
+
+            <h3>Excel Interface Components</h3>
+            
+            <h4>1. Ribbon</h4>
+            <p>The ribbon at the top contains tabs with related commands:</p>
+            <ul>
+                <li><strong>Home:</strong> Basic formatting, clipboard, alignment, number formats</li>
+                <li><strong>Insert:</strong> Tables, charts, pictures, shapes, pivot tables</li>
+                <li><strong>Page Layout:</strong> Themes, page setup, print area, gridlines</li>
+                <li><strong>Formulas:</strong> Function library, name manager, formula auditing</li>
+                <li><strong>Data:</strong> Sort, filter, data validation, text-to-columns, remove duplicates</li>
+                <li><strong>Review:</strong> Spell check, comments, protect sheet/workbook</li>
+                <li><strong>View:</strong> Workbook views, zoom, freeze panes, gridlines</li>
+            </ul>
+
+            <h4>2. Quick Access Toolbar</h4>
+            <p>Customizable toolbar at the top-left for frequently used commands. Right-click to add commands.</p>
+
+            <h4>3. Formula Bar</h4>
+            <p>Displays and allows editing of the contents of the active cell.</p>
+
+            <h4>4. Name Box</h4>
+            <p>Shows the address of the selected cell or allows you to navigate to a specific cell/range.</p>
+
+            <h4>5. Sheet Tabs</h4>
+            <p>Located at the bottom, allows switching between worksheets.</p>
+
+            <h3>Navigation Techniques</h3>
+            <table>
+                <tr>
+                    <th>Action</th>
+                    <th>Method</th>
+                </tr>
+                <tr>
+                    <td>Move to cell A1</td>
+                    <td>Ctrl+Home</td>
+                </tr>
+                <tr>
+                    <td>Move to last used cell</td>
+                    <td>Ctrl+End</td>
+                </tr>
+                <tr>
+                    <td>Jump to edge of data</td>
+                    <td>Ctrl+Arrow Keys</td>
+                </tr>
+                <tr>
+                    <td>Go to specific cell</td>
+                    <td>Ctrl+G or F5</td>
+                </tr>
+                <tr>
+                    <td>Switch worksheets</td>
+                    <td>Ctrl+Page Up/Down</td>
+                </tr>
+                <tr>
+                    <td>Move one screen right/left</td>
+                    <td>Alt+Page Down/Up</td>
+                </tr>
+            </table>
+
+            <h3>View Options</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Normal View</h4>
+                    <p>Default editing view</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Page Layout</h4>
+                    <p>See how pages will print</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Page Break Preview</h4>
+                    <p>Adjust page breaks before printing</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Freeze Panes</h4>
+                    <p>Keep rows/columns visible while scrolling</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="shortcuts" class="content-section">
+            <h2>⌨️ Keyboard Shortcuts</h2>
+
+            <h3>Essential Shortcuts</h3>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+N</span>
+                    <span>New workbook</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+O</span>
+                    <span>Open workbook</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+S</span>
+                    <span>Save workbook</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+W</span>
+                    <span>Close workbook</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+P</span>
+                    <span>Print</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Z</span>
+                    <span>Undo</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Y</span>
+                    <span>Redo</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+F</span>
+                    <span>Find</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+H</span>
+                    <span>Replace</span>
+                </div>
+            </div>
+
+            <h3>Selection Shortcuts</h3>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+A</span>
+                    <span>Select all</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Shift+Space</span>
+                    <span>Select entire row</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Space</span>
+                    <span>Select entire column</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+Arrow</span>
+                    <span>Select to end of data</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Shift+Arrow</span>
+                    <span>Extend selection</span>
+                </div>
+            </div>
+
+            <h3>Editing Shortcuts</h3>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">F2</span>
+                    <span>Edit active cell</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+C</span>
+                    <span>Copy</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+X</span>
+                    <span>Cut</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+V</span>
+                    <span>Paste</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+D</span>
+                    <span>Fill down</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+R</span>
+                    <span>Fill right</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Plus</span>
+                    <span>Insert cells/rows/columns</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Minus</span>
+                    <span>Delete cells/rows/columns</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Delete</span>
+                    <span>Clear cell contents</span>
+                </div>
+            </div>
+
+            <h3>Formatting Shortcuts</h3>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+B</span>
+                    <span>Bold</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+I</span>
+                    <span>Italic</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+U</span>
+                    <span>Underline</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+1</span>
+                    <span>Format cells dialog</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+$</span>
+                    <span>Currency format</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+%</span>
+                    <span>Percentage format</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+#</span>
+                    <span>Date format</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Alt+H+H</span>
+                    <span>Fill color</span>
+                </div>
+            </div>
+
+            <h3>Formula Shortcuts</h3>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">=</span>
+                    <span>Start formula</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Alt+=</span>
+                    <span>AutoSum</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+`</span>
+                    <span>Show/hide formulas</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">F4</span>
+                    <span>Toggle absolute/relative reference</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+Enter</span>
+                    <span>Array formula</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">F9</span>
+                    <span>Calculate all worksheets</span>
+                </div>
+            </div>
+
+            <h3>Data Shortcuts</h3>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+T</span>
+                    <span>Create table</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Alt+Down Arrow</span>
+                    <span>Open filter dropdown</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+L</span>
+                    <span>Toggle filters</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Alt+A+S+S</span>
+                    <span>Sort dialog</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="formatting" class="content-section">
+            <h2>🎨 Formatting</h2>
+
+            <h3>Number Formatting</h3>
+            <table>
+                <tr>
+                    <th>Format Type</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>General</td>
+                    <td>Default format</td>
+                    <td>123, Hello</td>
+                </tr>
+                <tr>
+                    <td>Number</td>
+                    <td>Numeric with decimals</td>
+                    <td>1,234.56</td>
+                </tr>
+                <tr>
+                    <td>Currency</td>
+                    <td>Money values</td>
+                    <td>$1,234.56</td>
+                </tr>
+                <tr>
+                    <td>Accounting</td>
+                    <td>Aligned currency</td>
+                    <td>$ 1,234.56</td>
+                </tr>
+                <tr>
+                    <td>Percentage</td>
+                    <td>Decimal as percent</td>
+                    <td>75%</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>Various date formats</td>
+                    <td>10/23/2025</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>Time values</td>
+                    <td>2:30 PM</td>
+                </tr>
+                <tr>
+                    <td>Fraction</td>
+                    <td>Display as fraction</td>
+                    <td>1/4</td>
+                </tr>
+                <tr>
+                    <td>Scientific</td>
+                    <td>Exponential notation</td>
+                    <td>1.23E+03</td>
+                </tr>
+                <tr>
+                    <td>Text</td>
+                    <td>Treat as text</td>
+                    <td>'123</td>
+                </tr>
+            </table>
+
+            <h3>Custom Number Formats</h3>
+            <div class="formula-box">
+                <strong>Format Structure:</strong> Positive;Negative;Zero;Text<br><br>
+                <strong>Examples:</strong><br>
+                • #,##0.00 - Number with thousand separator<br>
+                • $#,##0.00;[Red]($#,##0.00) - Currency with red negatives<br>
+                • 0.00% - Percentage with 2 decimals<br>
+                • [h]:mm:ss - Hours can exceed 24<br>
+                • @" units" - Add text after number
+            </div>
+
+            <h3>Cell Formatting Options</h3>
+            
+            <h4>Font Formatting</h4>
+            <ul>
+                <li>Font family, size, color</li>
+                <li>Bold, italic, underline, strikethrough</li>
+                <li>Superscript and subscript</li>
+            </ul>
+
+            <h4>Alignment</h4>
+            <ul>
+                <li>Horizontal: Left, Center, Right, Justify</li>
+                <li>Vertical: Top, Middle, Bottom</li>
+                <li>Text rotation and orientation</li>
+                <li>Wrap text</li>
+                <li>Merge cells</li>
+                <li>Indent</li>
+            </ul>
+
+            <h4>Borders</h4>
+            <ul>
+                <li>Outline borders</li>
+                <li>Inside borders</li>
+                <li>Top, bottom, left, right borders</li>
+                <li>Diagonal borders</li>
+                <li>Border styles and colors</li>
+            </ul>
+
+            <h4>Fill</h4>
+            <ul>
+                <li>Background color</li>
+                <li>Pattern styles</li>
+                <li>Gradient fills</li>
+            </ul>
+
+            <h3>Conditional Formatting</h3>
+            <p>Automatically format cells based on their values:</p>
+
+            <h4>Highlight Cell Rules</h4>
+            <ul>
+                <li>Greater Than / Less Than</li>
+                <li>Between</li>
+                <li>Equal To</li>
+                <li>Text That Contains</li>
+                <li>Date Occurring</li>
+                <li>Duplicate Values</li>
+            </ul>
+
+            <h4>Top/Bottom Rules</h4>
+            <ul>
+                <li>Top 10 Items</li>
+                <li>Bottom 10%</li>
+                <li>Above Average</li>
+                <li>Below Average</li>
+            </ul>
+
+            <h4>Data Bars</h4>
+            <p>Visual bars within cells proportional to their values</p>
+
+            <h4>Color Scales</h4>
+            <p>2-color or 3-color gradients based on value ranges</p>
+
+            <h4>Icon Sets</h4>
+            <p>Directional arrows, traffic lights, indicators</p>
+
+            <h4>Custom Rules</h4>
+            <div class="formula-box">
+                Use formulas for advanced conditions:<br>
+                • =MOD(ROW(),2)=0 - Format every other row<br>
+                • =$A1="Complete" - Format row if column A says Complete<br>
+                • =AND($B1>100,$C1<50) - Multiple conditions
+            </div>
+
+            <h3>Styles and Themes</h3>
+            <ul>
+                <li><strong>Cell Styles:</strong> Pre-defined formatting combinations</li>
+                <li><strong>Table Styles:</strong> Quick table formatting</li>
+                <li><strong>Themes:</strong> Coordinated colors, fonts, and effects</li>
+            </ul>
+        </div>
+
+        <div id="formulas" class="content-section">
+            <h2>📐 Formulas & Functions</h2>
+
+            <h3>Formula Basics</h3>
+            <div class="tip-box">
+                <strong>Remember:</strong> All formulas start with = sign
+            </div>
+
+            <h4>Operators</h4>
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>Addition</td>
+                    <td>=A1+B1</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Subtraction</td>
+                    <td>=A1-B1</td>
+                </tr>
+                <tr>
+                    <td>*</td>
+                    <td>Multiplication</td>
+                    <td>=A1*B1</td>
+                </tr>
+                <tr>
+                    <td>/</td>
+                    <td>Division</td>
+                    <td>=A1/B1</td>
+                </tr>
+                <tr>
+                    <td>^</td>
+                    <td>Exponentiation</td>
+                    <td>=A1^2</td>
+                </tr>
+                <tr>
+                    <td>&</td>
+                    <td>Text concatenation</td>
+                    <td>=A1&B1</td>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td>Equal to</td>
+                    <td>=A1=B1</td>
+                </tr>
+                <tr>
+                    <td>&lt;&gt;</td>
+                    <td>Not equal to</td>
+                    <td>=A1&lt;&gt;B1</td>
+                </tr>
+                <tr>
+                    <td>&gt;</td>
+                    <td>Greater than</td>
+                    <td>=A1&gt;B1</td>
+                </tr>
+                <tr>
+                    <td>&lt;</td>
+                    <td>Less than</td>
+                    <td>=A1&lt;B1</td>
+                </tr>
+                <tr>
+                    <td>&gt;=</td>
+                    <td>Greater or equal</td>
+                    <td>=A1&gt;=B1</td>
+                </tr>
+                <tr>
+                    <td>&lt;=</td>
+                    <td>Less or equal</td>
+                    <td>=A1&lt;=B1</td>
+                </tr>
+            </table>
+
+            <h4>Cell References</h4>
+            <div class="formula-box">
+                <strong>Relative Reference:</strong> A1 - Changes when copied<br>
+                <strong>Absolute Reference:</strong> $A$1 - Never changes<br>
+                <strong>Mixed Reference:</strong> $A1 or A$1 - Column or row fixed<br>
+                <strong>Press F4:</strong> Toggle between reference types
+            </div>
+
+            <h3>Mathematical Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>SUM</td>
+                    <td>Add numbers</td>
+                    <td>=SUM(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>AVERAGE</td>
+                    <td>Calculate mean</td>
+                    <td>=AVERAGE(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>COUNT</td>
+                    <td>Count numbers</td>
+                    <td>=COUNT(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>COUNTA</td>
+                    <td>Count non-empty cells</td>
+                    <td>=COUNTA(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>COUNTBLANK</td>
+                    <td>Count empty cells</td>
+                    <td>=COUNTBLANK(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>MAX</td>
+                    <td>Maximum value</td>
+                    <td>=MAX(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>MIN</td>
+                    <td>Minimum value</td>
+                    <td>=MIN(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>MEDIAN</td>
+                    <td>Middle value</td>
+                    <td>=MEDIAN(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>MODE</td>
+                    <td>Most common value</td>
+                    <td>=MODE.SNGL(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>ROUND</td>
+                    <td>Round to decimals</td>
+                    <td>=ROUND(A1,2)</td>
+                </tr>
+                <tr>
+                    <td>ROUNDUP</td>
+                    <td>Round up</td>
+                    <td>=ROUNDUP(A1,2)</td>
+                </tr>
+                <tr>
+                    <td>ROUNDDOWN</td>
+                    <td>Round down</td>
+                    <td>=ROUNDDOWN(A1,2)</td>
+                </tr>
+                <tr>
+                    <td>INT</td>
+                    <td>Round down to integer</td>
+                    <td>=INT(A1)</td>
+                </tr>
+                <tr>
+                    <td>ABS</td>
+                    <td>Absolute value</td>
+                    <td>=ABS(A1)</td>
+                </tr>
+                <tr>
+                    <td>SQRT</td>
+                    <td>Square root</td>
+                    <td>=SQRT(A1)</td>
+                </tr>
+                <tr>
+                    <td>POWER</td>
+                    <td>Raise to power</td>
+                    <td>=POWER(A1,2)</td>
+                </tr>
+                <tr>
+                    <td>MOD</td>
+                    <td>Remainder after division</td>
+                    <td>=MOD(A1,2)</td>
+                </tr>
+                <tr>
+                    <td>PRODUCT</td>
+                    <td>Multiply numbers</td>
+                    <td>=PRODUCT(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>SUMPRODUCT</td>
+                    <td>Sum of products</td>
+                    <td>=SUMPRODUCT(A1:A10,B1:B10)</td>
+                </tr>
+                <tr>
+                    <td>RAND</td>
+                    <td>Random number 0-1</td>
+                    <td>=RAND()</td>
+                </tr>
+                <tr>
+                    <td>RANDBETWEEN</td>
+                    <td>Random integer in range</td>
+                    <td>=RANDBETWEEN(1,100)</td>
+                </tr>
+            </table>
+
+            <h3>Statistical Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>STDEV.S</td>
+                    <td>Standard deviation (sample)</td>
+                    <td>=STDEV.S(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>STDEV.P</td>
+                    <td>Standard deviation (population)</td>
+                    <td>=STDEV.P(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>VAR.S</td>
+                    <td>Variance (sample)</td>
+                    <td>=VAR.S(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>VAR.P</td>
+                    <td>Variance (population)</td>
+                    <td>=VAR.P(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>CORREL</td>
+                    <td>Correlation coefficient</td>
+                    <td>=CORREL(A1:A10,B1:B10)</td>
+                </tr>
+                <tr>
+                    <td>PERCENTILE</td>
+                    <td>Kth percentile</td>
+                    <td>=PERCENTILE.INC(A1:A10,0.75)</td>
+                </tr>
+                <tr>
+                    <td>QUARTILE</td>
+                    <td>Quartile value</td>
+                    <td>=QUARTILE.INC(A1:A10,1)</td>
+                </tr>
+                <tr>
+                    <td>RANK</td>
+                    <td>Rank of number</td>
+                    <td>=RANK.EQ(A1,A1:A10)</td>
+                </tr>
+            </table>
+
+            <h3>Logical Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>IF</td>
+                    <td>Conditional logic</td>
+                    <td>=IF(A1&gt;10,"High","Low")</td>
+                </tr>
+                <tr>
+                    <td>AND</td>
+                    <td>All conditions true</td>
+                    <td>=AND(A1&gt;10,B1&lt;20)</td>
+                </tr>
+                <tr>
+                    <td>OR</td>
+                    <td>Any condition true</td>
+                    <td>=OR(A1&gt;10,B1&lt;20)</td>
+                </tr>
+                <tr>
+                    <td>NOT</td>
+                    <td>Reverse logic</td>
+                    <td>=NOT(A1&gt;10)</td>
+                </tr>
+                <tr>
+                    <td>XOR</td>
+                    <td>Exclusive OR</td>
+                    <td>=XOR(A1&gt;10,B1&lt;20)</td>
+                </tr>
+                <tr>
+                    <td>IFS</td>
+                    <td>Multiple conditions</td>
+                    <td>=IFS(A1&gt;90,"A",A1&gt;80,"B",TRUE,"C")</td>
+                </tr>
+                <tr>
+                    <td>IFERROR</td>
+                    <td>Handle errors</td>
+                    <td>=IFERROR(A1/B1,"Error")</td>
+                </tr>
+                <tr>
+                    <td>IFNA</td>
+                    <td>Handle #N/A errors</td>
+                    <td>=IFNA(VLOOKUP(A1,B:C,2,0),"Not Found")</td>
+                </tr>
+                <tr>
+                    <td>SWITCH</td>
+                    <td>Match and return</td>
+                    <td>=SWITCH(A1,1,"One",2,"Two","Other")</td>
+                </tr>
+            </table>
+
+            <h3>Text Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>LEFT</td>
+                    <td>Extract from left</td>
+                    <td>=LEFT(A1,5)</td>
+                </tr>
+                <tr>
+                    <td>RIGHT</td>
+                    <td>Extract from right</td>
+                    <td>=RIGHT(A1,5)</td>
+                </tr>
+                <tr>
+                    <td>MID</td>
+                    <td>Extract from middle</td>
+                    <td>=MID(A1,3,5)</td>
+                </tr>
+                <tr>
+                    <td>LEN</td>
+                    <td>Length of text</td>
+                    <td>=LEN(A1)</td>
+                </tr>
+                <tr>
+                    <td>TRIM</td>
+                    <td>Remove extra spaces</td>
+                    <td>=TRIM(A1)</td>
+                </tr>
+                <tr>
+                    <td>UPPER</td>
+                    <td>Convert to uppercase</td>
+                    <td>=UPPER(A1)</td>
+                </tr>
+                <tr>
+                    <td>LOWER</td>
+                    <td>Convert to lowercase</td>
+                    <td>=LOWER(A1)</td>
+                </tr>
+                <tr>
+                    <td>PROPER</td>
+                    <td>Capitalize each word</td>
+                    <td>=PROPER(A1)</td>
+                </tr>
+                <tr>
+                    <td>CONCATENATE</td>
+                    <td>Join text (legacy)</td>
+                    <td>=CONCATENATE(A1," ",B1)</td>
+                </tr>
+                <tr>
+                    <td>CONCAT</td>
+                    <td>Join text (modern)</td>
+                    <td>=CONCAT(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>TEXTJOIN</td>
+                    <td>Join with delimiter</td>
+                    <td>=TEXTJOIN(", ",TRUE,A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>SUBSTITUTE</td>
+                    <td>Replace text</td>
+                    <td>=SUBSTITUTE(A1,"old","new")</td>
+                </tr>
+                <tr>
+                    <td>REPLACE</td>
+                    <td>Replace by position</td>
+                    <td>=REPLACE(A1,3,2,"XX")</td>
+                </tr>
+                <tr>
+                    <td>FIND</td>
+                    <td>Find position (case-sensitive)</td>
+                    <td>=FIND("text",A1)</td>
+                </tr>
+                <tr>
+                    <td>SEARCH</td>
+                    <td>Find position (not case-sensitive)</td>
+                    <td>=SEARCH("text",A1)</td>
+                </tr>
+                <tr>
+                    <td>TEXT</td>
+                    <td>Format number as text</td>
+                    <td>=TEXT(A1,"0.00")</td>
+                </tr>
+                <tr>
+                    <td>VALUE</td>
+                    <td>Convert text to number</td>
+                    <td>=VALUE(A1)</td>
+                </tr>
+                <tr>
+                    <td>REPT</td>
+                    <td>Repeat text</td>
+                    <td>=REPT("*",5)</td>
+                </tr>
+            </table>
+
+            <h3>Date & Time Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>TODAY</td>
+                    <td>Current date</td>
+                    <td>=TODAY()</td>
+                </tr>
+                <tr>
+                    <td>NOW</td>
+                    <td>Current date and time</td>
+                    <td>=NOW()</td>
+                </tr>
+                <tr>
+                    <td>DATE</td>
+                    <td>Create date</td>
+                    <td>=DATE(2025,10,23)</td>
+                </tr>
+                <tr>
+                    <td>TIME</td>
+                    <td>Create time</td>
+                    <td>=TIME(14,30,0)</td>
+                </tr>
+                <tr>
+                    <td>YEAR</td>
+                    <td>Extract year</td>
+                    <td>=YEAR(A1)</td>
+                </tr>
+                <tr>
+                    <td>MONTH</td>
+                    <td>Extract month</td>
+                    <td>=MONTH(A1)</td>
+                </tr>
+                <tr>
+                    <td>DAY</td>
+                    <td>Extract day</td>
+                    <td>=DAY(A1)</td>
+                </tr>
+                <tr>
+                    <td>HOUR</td>
+                    <td>Extract hour</td>
+                    <td>=HOUR(A1)</td>
+                </tr>
+                <tr>
+                    <td>MINUTE</td>
+                    <td>Extract minute</td>
+                    <td>=MINUTE(A1)</td>
+                </tr>
+                <tr>
+                    <td>SECOND</td>
+                    <td>Extract second</td>
+                    <td>=SECOND(A1)</td>
+                </tr>
+                <tr>
+                    <td>WEEKDAY</td>
+                    <td>Day of week (1-7)</td>
+                    <td>=WEEKDAY(A1)</td>
+                </tr>
+                <tr>
+                    <td>WEEKNUM</td>
+                    <td>Week number of year</td>
+                    <td>=WEEKNUM(A1)</td>
+                </tr>
+                <tr>
+                    <td>DAYS</td>
+                    <td>Days between dates</td>
+                    <td>=DAYS(A2,A1)</td>
+                </tr>
+                <tr>
+                    <td>NETWORKDAYS</td>
+                    <td>Working days between dates</td>
+                    <td>=NETWORKDAYS(A1,A2)</td>
+                </tr>
+                <tr>
+                    <td>WORKDAY</td>
+                    <td>Date after working days</td>
+                    <td>=WORKDAY(A1,10)</td>
+                </tr>
+                <tr>
+                    <td>EDATE</td>
+                    <td>Date plus months</td>
+                    <td>=EDATE(A1,3)</td>
+                </tr>
+                <tr>
+                    <td>EOMONTH</td>
+                    <td>End of month</td>
+                    <td>=EOMONTH(A1,0)</td>
+                </tr>
+                <tr>
+                    <td>DATEDIF</td>
+                    <td>Date difference</td>
+                    <td>=DATEDIF(A1,A2,"Y")</td>
+                </tr>
+            </table>
+
+            <h3>Lookup & Reference Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>VLOOKUP</td>
+                    <td>Vertical lookup</td>
+                    <td>=VLOOKUP(A1,B:D,3,FALSE)</td>
+                </tr>
+                <tr>
+                    <td>HLOOKUP</td>
+                    <td>Horizontal lookup</td>
+                    <td>=HLOOKUP(A1,B1:E5,3,FALSE)</td>
+                </tr>
+                <tr>
+                    <td>XLOOKUP</td>
+                    <td>Modern lookup (2019+)</td>
+                    <td>=XLOOKUP(A1,B:B,C:C)</td>
+                </tr>
+                <tr>
+                    <td>INDEX</td>
+                    <td>Return value by position</td>
+                    <td>=INDEX(A1:C10,5,2)</td>
+                </tr>
+                <tr>
+                    <td>MATCH</td>
+                    <td>Find position</td>
+                    <td>=MATCH(A1,B:B,0)</td>
+                </tr>
+                <tr>
+                    <td>INDIRECT</td>
+                    <td>Reference from text</td>
+                    <td>=INDIRECT("A"&ROW())</td>
+                </tr>
+                <tr>
+                    <td>OFFSET</td>
+                    <td>Reference from offset</td>
+                    <td>=OFFSET(A1,2,3)</td>
+                </tr>
+                <tr>
+                    <td>CHOOSE</td>
+                    <td>Choose from list</td>
+                    <td>=CHOOSE(A1,"Red","Blue","Green")</td>
+                </tr>
+                <tr>
+                    <td>ROW</td>
+                    <td>Row number</td>
+                    <td>=ROW()</td>
+                </tr>
+                <tr>
+                    <td>COLUMN</td>
+                    <td>Column number</td>
+                    <td>=COLUMN()</td>
+                </tr>
+                <tr>
+                    <td>ROWS</td>
+                    <td>Count rows in range</td>
+                    <td>=ROWS(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>COLUMNS</td>
+                    <td>Count columns in range</td>
+                    <td>=COLUMNS(A1:C1)</td>
+                </tr>
+            </table>
+
+            <h3>Database Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>DSUM</td>
+                    <td>Sum with criteria</td>
+                    <td>=DSUM(A1:D100,4,F1:F2)</td>
+                </tr>
+                <tr>
+                    <td>DAVERAGE</td>
+                    <td>Average with criteria</td>
+                    <td>=DAVERAGE(A1:D100,4,F1:F2)</td>
+                </tr>
+                <tr>
+                    <td>DCOUNT</td>
+                    <td>Count with criteria</td>
+                    <td>=DCOUNT(A1:D100,4,F1:F2)</td>
+                </tr>
+                <tr>
+                    <td>DMAX</td>
+                    <td>Max with criteria</td>
+                    <td>=DMAX(A1:D100,4,F1:F2)</td>
+                </tr>
+                <tr>
+                    <td>DMIN</td>
+                    <td>Min with criteria</td>
+                    <td>=DMIN(A1:D100,4,F1:F2)</td>
+                </tr>
+            </table>
+
+            <h3>Financial Functions</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>PMT</td>
+                    <td>Loan payment</td>
+                    <td>=PMT(5%/12,360,200000)</td>
+                </tr>
+                <tr>
+                    <td>PV</td>
+                    <td>Present value</td>
+                    <td>=PV(5%,10,-1000)</td>
+                </tr>
+                <tr>
+                    <td>FV</td>
+                    <td>Future value</td>
+                    <td>=FV(5%,10,-1000)</td>
+                </tr>
+                <tr>
+                    <td>RATE</td>
+                    <td>Interest rate</td>
+                    <td>=RATE(360,-1000,200000)</td>
+                </tr>
+                <tr>
+                    <td>NPER</td>
+                    <td>Number of periods</td>
+                    <td>=NPER(5%,-1000,200000)</td>
+                </tr>
+                <tr>
+                    <td>NPV</td>
+                    <td>Net present value</td>
+                    <td>=NPV(10%,A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>IRR</td>
+                    <td>Internal rate of return</td>
+                    <td>=IRR(A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>XNPV</td>
+                    <td>NPV with dates</td>
+                    <td>=XNPV(10%,B1:B10,A1:A10)</td>
+                </tr>
+                <tr>
+                    <td>XIRR</td>
+                    <td>IRR with dates</td>
+                    <td>=XIRR(B1:B10,A1:A10)</td>
+                </tr>
+            </table>
+
+            <h3>Array Formulas (Modern Excel)</h3>
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>FILTER</td>
+                    <td>Filter array by condition</td>
+                    <td>=FILTER(A1:C100,B1:B100&gt;50)</td>
+                </tr>
+                <tr>
+                    <td>SORT</td>
+                    <td>Sort array</td>
+                    <td>=SORT(A1:C100,2,-1)</td>
+                </tr>
+                <tr>
+                    <td>SORTBY</td>
+                    <td>Sort by another column</td>
+                    <td>=SORTBY(A1:C100,B1:B100,-1)</td>
+                </tr>
+                <tr>
+                    <td>UNIQUE</td>
+                    <td>Unique values</td>
+                    <td>=UNIQUE(A1:A100)</td>
+                </tr>
+                <tr>
+                    <td>SEQUENCE</td>
+                    <td>Generate number sequence</td>
+                    <td>=SEQUENCE(10)</td>
+                </tr>
+                <tr>
+                    <td>RANDARRAY</td>
+                    <td>Random number array</td>
+                    <td>=RANDARRAY(5,3)</td>
+                </tr>
+            </table>
+
+            <div class="example-box">
+                <h4>Complex Formula Example: Nested IF with VLOOKUP</h4>
+                <div class="formula-box">
+                    =IF(ISBLANK(A2),"No Data",<br>
+                    &nbsp;&nbsp;IF(A2&gt;90,"A",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;IF(A2&gt;80,"B",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF(A2&gt;70,"C",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF(A2&gt;60,"D","F")))))</div>
+            </div>
+        </div>
+
+        <div id="data" class="content-section">
+            <h2>📊 Data Management</h2>
+
+            <h3>Sorting Data</h3>
+            
+            <h4>Quick Sort</h4>
+            <ul>
+                <li>Select any cell in your data</li>
+                <li>Data tab → Sort A to Z or Sort Z to A</li>
+                <li>Works on current column</li>
+            </ul>
+
+            <h4>Custom Sort</h4>
+            <ul>
+                <li>Data tab → Sort</li>
+                <li>Add multiple sort levels</li>
+                <li>Choose sort order (ascending/descending)</li>
+                <li>Sort by values, cell color, font color, or icon</li>
+            </ul>
+
+            <h3>Filtering Data</h3>
+            
+            <h4>AutoFilter</h4>
+            <ul>
+                <li>Select data → Data tab → Filter (Ctrl+Shift+L)</li>
+                <li>Dropdown arrows appear in header row</li>
+                <li>Click arrow to select values to show/hide</li>
+                <li>Use search box to find specific items</li>
+            </ul>
+
+            <h4>Filter Types</h4>
+            <ul>
+                <li><strong>Text Filters:</strong> Contains, Begins With, Ends With</li>
+                <li><strong>Number Filters:</strong> Greater Than, Less Than, Between, Top 10</li>
+                <li><strong>Date Filters:</strong> Today, This Month, Last Quarter, custom date range</li>
+                <li><strong>Color Filters:</strong> By cell or font color</li>
+            </ul>
+
+            <h4>Advanced Filter</h4>
+            <p>Data tab → Advanced → Set criteria range for complex conditions</p>
+
+            <h3>Data Validation</h3>
+            <p>Control what data can be entered in cells</p>
+
+            <h4>Validation Types</h4>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>Whole Number</td>
+                    <td>Integers only</td>
+                    <td>Between 1 and 100</td>
+                </tr>
+                <tr>
+                    <td>Decimal</td>
+                    <td>Numbers with decimals</td>
+                    <td>Greater than 0</td>
+                </tr>
+                <tr>
+                    <td>List</td>
+                    <td>Dropdown selection</td>
+                    <td>Red,Green,Blue</td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>Valid dates only</td>
+                    <td>After today</td>
+                </tr>
+                <tr>
+                    <td>Time</td>
+                    <td>Valid times only</td>
+                    <td>Between 9 AM and 5 PM</td>
+                </tr>
+                <tr>
+                    <td>Text Length</td>
+                    <td>Character count</td>
+                    <td>Maximum 50 characters</td>
+                </tr>
+                <tr>
+                    <td>Custom</td>
+                    <td>Formula-based</td>
+                    <td>=A1&lt;&gt;B1</td>
+                </tr>
+            </table>
+
+            <h4>Setting Up Validation</h4>
+            <ol>
+                <li>Select cells to validate</li>
+                <li>Data tab → Data Validation</li>
+                <li>Choose validation type and criteria</li>
+                <li>Set input message (optional)</li>
+                <li>Set error alert (optional)</li>
+            </ol>
+
+            <h3>Remove Duplicates</h3>
+            <ul>
+                <li>Select data range</li>
+                <li>Data tab → Remove Duplicates</li>
+                <li>Choose which columns to check</li>
+                <li>Keeps first occurrence, removes rest</li>
+            </ul>
+
+            <h3>Text to Columns</h3>
+            <p>Split text in one column into multiple columns</p>
+            
+            <h4>Delimited</h4>
+            <ul>
+                <li>Split by comma, tab, space, or custom character</li>
+                <li>Example: "First,Last" → "First" | "Last"</li>
+            </ul>
+
+            <h4>Fixed Width</h4>
+            <ul>
+                <li>Split at specific character positions</li>
+                <li>Useful for fixed-width data files</li>
+            </ul>
+
+            <h3>Flash Fill</h3>
+            <p>Automatically detect patterns and fill data (Excel 2013+)</p>
+            <ul>
+                <li>Type examples in adjacent column</li>
+                <li>Press Ctrl+E or Data tab → Flash Fill</li>
+                <li>Excel detects pattern and fills remaining cells</li>
+                <li>Works for: extracting names, combining text, reformatting dates</li>
+            </ul>
+
+            <h3>Data Consolidation</h3>
+            <p>Combine data from multiple ranges or worksheets</p>
+            <ul>
+                <li>Data tab → Consolidate</li>
+                <li>Choose function (Sum, Average, Count, etc.)</li>
+                <li>Add multiple ranges</li>
+                <li>Option to create links to source data</li>
+            </ul>
+
+            <h3>Subtotals</h3>
+            <p>Automatically calculate subtotals for grouped data</p>
+            <ol>
+                <li>Sort data by the column you want to group</li>
+                <li>Select data range</li>
+                <li>Data tab → Subtotal</li>
+                <li>Choose grouping column and calculation</li>
+                <li>Creates collapsible outline structure</li>
+            </ol>
+
+            <h3>Tables</h3>
+            <p>Convert range to structured table (Ctrl+T)</p>
+            
+            <h4>Table Benefits</h4>
+            <ul>
+                <li>Automatic filtering and sorting</li>
+                <li>Structured references in formulas</li>
+                <li>Easy formatting with table styles</li>
+                <li>Auto-expand when adding data</li>
+                <li>Total row with quick calculations</li>
+            </ul>
+
+            <h4>Structured References</h4>
+            <div class="formula-box">
+                =Table1[@Sales] - Reference current row<br>
+                =SUM(Table1[Sales]) - Sum entire column<br>
+                =Table1[[#Headers],[Sales]] - Reference header<br>
+                =Table1[[#Totals],[Sales]] - Reference total row
+            </div>
+
+            <h3>Data Import Options</h3>
+            <ul>
+                <li><strong>From Text/CSV:</strong> Import delimited or fixed-width files</li>
+                <li><strong>From Web:</strong> Import tables from web pages</li>
+                <li><strong>From Database:</strong> Connect to SQL Server, Access, etc.</li>
+                <li><strong>From Other Sources:</strong> XML, JSON, APIs</li>
+                <li><strong>Power Query:</strong> Advanced data transformation tool</li>
+            </ul>
+        </div>
+
+        <div id="charts" class="content-section">
+            <h2>📈 Charts & Graphs</h2>
+
+            <h3>Chart Types</h3>
+
+            <h4>Column & Bar Charts</h4>
+            <ul>
+                <li><strong>Clustered Column:</strong> Compare values across categories</li>
+                <li><strong>Stacked Column:</strong> Show part-to-whole relationships</li>
+                <li><strong>100% Stacked:</strong> Compare percentages</li>
+                <li><strong>Bar Charts:</strong> Same as column but horizontal</li>
+                <li><strong>Best for:</strong> Comparing discrete categories</li>
+            </ul>
+
+            <h4>Line Charts</h4>
+            <ul>
+                <li><strong>Line:</strong> Show trends over time</li>
+                <li><strong>Line with Markers:</strong> Emphasize data points</li>
+                <li><strong>Stacked Line:</strong> Show cumulative trends</li>
+                <li><strong>Best for:</strong> Time series data, trends</li>
+            </ul>
+
+            <h4>Pie & Doughnut Charts</h4>
+            <ul>
+                <li><strong>Pie:</strong> Show parts of a whole</li>
+                <li><strong>Exploded Pie:</strong> Emphasize one slice</li>
+                <li><strong>Doughnut:</strong> Multiple data series</li>
+                <li><strong>Best for:</strong> Showing proportions (limited categories)</li>
+            </ul>
+
+            <h4>Area Charts</h4>
+            <ul>
+                <li><strong>Area:</strong> Like line but filled</li>
+                <li><strong>Stacked Area:</strong> Show cumulative totals</li>
+                <li><strong>Best for:</strong> Magnitude of change over time</li>
+            </ul>
+
+            <h4>Scatter (XY) Charts</h4>
+            <ul>
+                <li><strong>Scatter:</strong> Show relationships between two variables</li>
+                <li><strong>Scatter with Lines:</strong> Connect data points</li>
+                <li><strong>Best for:</strong> Correlation, scientific data</li>
+            </ul>
+
+            <h4>Combo Charts</h4>
+            <ul>
+                <li>Combine different chart types</li>
+                <li>Example: Column chart with line overlay</li>
+                <li>Use secondary axis for different scales</li>
+            </ul>
+
+            <h4>Specialized Charts</h4>
+            <ul>
+                <li><strong>Waterfall:</strong> Show running total with increases/decreases</li>
+                <li><strong>Funnel:</strong> Show progressive reduction (sales pipeline)</li>
+                <li><strong>Stock:</strong> High-Low-Close stock prices</li>
+                <li><strong>Surface:</strong> 3D data visualization</li>
+                <li><strong>Radar:</strong> Compare multiple variables</li>
+                <li><strong>Treemap:</strong> Hierarchical data in nested rectangles</li>
+                <li><strong>Sunburst:</strong> Hierarchical data in concentric rings</li>
+                <li><strong>Histogram:</strong> Frequency distribution</li>
+                <li><strong>Box & Whisker:</strong> Statistical distribution</li>
+            </ul>
+
+            <h3>Creating Charts</h3>
+            <ol>
+                <li>Select data range (including headers)</li>
+                <li>Insert tab → Choose chart type</li>
+                <li>Or press Alt+F1 for default chart</li>
+                <li>Chart appears in worksheet</li>
+            </ol>
+
+            <h3>Chart Elements</h3>
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                    <th>Customization</th>
+                </tr>
+                <tr>
+                    <td>Chart Title</td>
+                    <td>Main title</td>
+                    <td>Position, font, format</td>
+                </tr>
+                <tr>
+                    <td>Axis Titles</td>
+                    <td>Label axes</td>
+                    <td>Text, orientation</td>
+                </tr>
+                <tr>
+                    <td>Legend</td>
+                    <td>Identify data series</td>
+                    <td>Position, format</td>
+                </tr>
+                <tr>
+                    <td>Data Labels</td>
+                    <td>Show values on points</td>
+                    <td>Format, position</td>
+                </tr>
+                <tr>
+                    <td>Gridlines</td>
+                    <td>Reference lines</td>
+                    <td>Major/minor, style</td>
+                </tr>
+                <tr>
+                    <td>Data Table</td>
+                    <td>Show source data</td>
+                    <td>With/without legend keys</td>
+                </tr>
+                <tr>
+                    <td>Error Bars</td>
+                    <td>Show uncertainty</td>
+                    <td>Standard error, percentage</td>
+                </tr>
+                <tr>
+                    <td>Trendline</td>
+                    <td>Show trend</td>
+                    <td>Linear, exponential, etc.</td>
+                </tr>
+            </table>
+
+            <h3>Chart Formatting</h3>
+            
+            <h4>Quick Layouts & Styles</h4>
+            <ul>
+                <li>Chart Design tab → Quick Layout</li>
+                <li>Pre-designed element combinations</li>
+                <li>Chart Styles for colors and effects</li>
+            </ul>
+
+            <h4>Manual Formatting</h4>
+            <ul>
+                <li>Click any chart element to select</li>
+                <li>Right-click → Format [Element]</li>
+                <li>Format pane appears on right</li>
+                <li>Customize colors, borders, effects, size, alignment</li>
+            </ul>
+
+            <h4>Chart Shortcuts</h4>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Alt+F1</span>
+                    <span>Create default chart</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">F11</span>
+                    <span>Create chart on new sheet</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+1</span>
+                    <span>Format selected element</span>
+                </div>
+            </div>
+
+            <h3>Dynamic Charts</h3>
+            
+            <h4>Using Tables</h4>
+            <p>Charts based on tables automatically expand when data is added</p>
+
+            <h4>Using Named Ranges</h4>
+            <p>Define dynamic named ranges with OFFSET function for auto-expanding charts</p>
+
+            <h4>Chart Templates</h4>
+            <ul>
+                <li>Create and format chart</li>
+                <li>Right-click → Save as Template</li>
+                <li>Reuse template for consistent formatting</li>
+            </ul>
+
+            <h3>Sparklines</h3>
+            <p>Mini charts in single cells</p>
+            
+            <h4>Types</h4>
+            <ul>
+                <li><strong>Line:</strong> Trend over time</li>
+                <li><strong>Column:</strong> Individual values</li>
+                <li><strong>Win/Loss:</strong> Binary outcomes</li>
+            </ul>
+
+            <h4>Creating Sparklines</h4>
+            <ol>
+                <li>Select cell for sparkline</li>
+                <li>Insert tab → Sparklines</li>
+                <li>Choose data range</li>
+                <li>Customize with markers, colors, axis</li>
+            </ol>
+        </div>
+
+        <div id="pivot" class="content-section">
+            <h2>🔄 Pivot Tables</h2>
+
+            <h3>What are Pivot Tables?</h3>
+            <p>Powerful tools for summarizing, analyzing, and presenting large amounts of data. They allow you to reorganize and summarize selected columns and rows to obtain desired reports.</p>
+
+            <h3>Creating a Pivot Table</h3>
+            <ol>
+                <li>Click anywhere in your data range</li>
+                <li>Insert tab → PivotTable (or Alt+N+V)</li>
+                <li>Choose data range and location</li>
+                <li>Drag fields to areas:
+                    <ul>
+                        <li><strong>Rows:</strong> Categories down the left</li>
+                        <li><strong>Columns:</strong> Categories across the top</li>
+                        <li><strong>Values:</strong> Numbers to summarize</li>
+                        <li><strong>Filters:</strong> Filter entire pivot table</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Pivot Table Components</h3>
+
+            <h4>Row Labels</h4>
+            <ul>
+                <li>Primary grouping dimension</li>
+                <li>Can have multiple levels (nested)</li>
+                <li>Example: Region → State → City</li>
+            </ul>
+
+            <h4>Column Labels</h4>
+            <ul>
+                <li>Secondary grouping dimension</li>
+                <li>Creates cross-tabulation</li>
+                <li>Example: Months across columns</li>
+            </ul>
+
+            <h4>Values Area</h4>
+            <ul>
+                <li>Numeric data to summarize</li>
+                <li>Multiple calculations possible</li>
+                <li>Can show as: Sum, Count, Average, Max, Min, etc.</li>
+            </ul>
+
+            <h4>Filters</h4>
+            <ul>
+                <li>Filter entire pivot table</li>
+                <li>Multiple filters allowed</li>
+                <li>Acts like report filter</li>
+            </ul>
+
+            <h3>Value Field Settings</h3>
+            
+            <h4>Summarize By</h4>
+            <ul>
+                <li>Sum (default for numbers)</li>
+                <li>Count (default for text)</li>
+                <li>Average</li>
+                <li>Max / Min</li>
+                <li>Product</li>
+                <li>Count Numbers</li>
+                <li>StdDev / Variance</li>
+            </ul>
+
+            <h4>Show Values As</h4>
+            <ul>
+                <li><strong>% of Grand Total:</strong> Percentage of all values</li>
+                <li><strong>% of Column/Row Total:</strong> Percentage within group</li>
+                <li><strong>% of Parent:</strong> Percentage of parent item</li>
+                <li><strong>Difference From:</strong> Compare to base value</li>
+                <li><strong>% Difference From:</strong> Percentage change from base</li>
+                <li><strong>Running Total:</strong> Cumulative sum</li>
+                <li><strong>% Running Total:</strong> Cumulative percentage</li>
+                <li><strong>Rank:</strong> Numerical ranking</li>
+                <li><strong>Index:</strong> Relative importance</li>
+            </ul>
+
+            <h3>Grouping Data</h3>
+
+            <h4>Date Grouping</h4>
+            <ul>
+                <li>Right-click date field → Group</li>
+                <li>Group by: Seconds, Minutes, Hours, Days, Months, Quarters, Years</li>
+                <li>Can group by multiple time periods simultaneously</li>
+            </ul>
+
+            <h4>Number Grouping</h4>
+            <ul>
+                <li>Create bins for numerical data</li>
+                <li>Specify starting point and interval</li>
+                <li>Example: Age groups (0-18, 19-35, 36-50, etc.)</li>
+            </ul>
+
+            <h4>Manual Grouping</h4>
+            <ul>
+                <li>Select items to group</li>
+                <li>Right-click → Group Selection</li>
+                <li>Create custom categories</li>
+            </ul>
+
+            <h3>Slicers</h3>
+            <p>Visual filtering controls for pivot tables</p>
+            
+            <h4>Creating Slicers</h4>
+            <ol>
+                <li>Click pivot table</li>
+                <li>PivotTable Analyze tab → Insert Slicer</li>
+                <li>Choose fields for slicers</li>
+                <li>Click values to filter</li>
+            </ol>
+
+            <h4>Slicer Features</h4>
+            <ul>
+                <li>Visual representation of filters</li>
+                <li>Multi-select with Ctrl</li>
+                <li>Connect to multiple pivot tables</li>
+                <li>Customizable appearance</li>
+                <li>Show items with no data</li>
+            </ul>
+
+            <h3>Timelines</h3>
+            <p>Date-specific slicers with time period selection</p>
+            <ul>
+                <li>Works only with date fields</li>
+                <li>Filter by Years, Quarters, Months, Days</li>
+                <li>Drag to select date ranges</li>
+                <li>More intuitive than date slicers</li>
+            </ul>
+
+            <h3>Calculated Fields</h3>
+            <p>Create custom calculations within pivot tables</p>
+
+            <h4>Creating Calculated Fields</h4>
+            <ol>
+                <li>PivotTable Analyze tab → Fields, Items & Sets</li>
+                <li>Choose Calculated Field</li>
+                <li>Enter name and formula</li>
+                <li>Use existing field names in formula</li>
+            </ol>
+
+            <div class="example-box">
+                <h4>Example Calculated Field</h4>
+                <p><strong>Name:</strong> Profit Margin</p>
+                <p><strong>Formula:</strong> =(Sales - Cost) / Sales</p>
+            </div>
+
+            <h3>Calculated Items</h3>
+            <p>Create custom items within a field</p>
+            <ul>
+                <li>Add item based on other items</li>
+                <li>Example: "Q1" = January + February + March</li>
+                <li>Different from calculated fields</li>
+            </ul>
+
+            <h3>Pivot Charts</h3>
+            <p>Visual representation of pivot table data</p>
+            
+            <h4>Creating Pivot Charts</h4>
+            <ul>
+                <li>Click pivot table</li>
+                <li>PivotTable Analyze tab → PivotChart</li>
+                <li>Or Insert tab → PivotChart (creates both together)</li>
+            </ul>
+
+            <h4>Pivot Chart Features</h4>
+            <ul>
+                <li>Interactive filtering</li>
+                <li>Automatically updates with pivot table</li>
+                <li>Filter buttons on chart</li>
+                <li>All chart formatting options available</li>
+            </ul>
+
+            <h3>Pivot Table Options</h3>
+
+            <h4>Design Options</h4>
+            <ul>
+                <li>Report Layout: Compact, Outline, Tabular</li>
+                <li>Subtotals: At top or bottom of groups</li>
+                <li>Grand Totals: Show/hide for rows and columns</li>
+                <li>Blank Rows: Insert after each item</li>
+            </ul>
+
+            <h4>Display Options</h4>
+            <ul>
+                <li>Show items with no data</li>
+                <li>Display field captions</li>
+                <li>Classic pivot table layout</li>
+                <li>Field list position</li>
+            </ul>
+
+            <h4>Data Options</h4>
+            <ul>
+                <li>Save source data with file</li>
+                <li>Enable show details</li>
+                <li>Refresh data options</li>
+                <li>Number of items to retain per filter</li>
+            </ul>
+
+            <h3>Data Model</h3>
+            <p>Create relationships between multiple tables</p>
+            
+            <h4>Power Pivot</h4>
+            <ul>
+                <li>Work with large datasets (millions of rows)</li>
+                <li>Create relationships between tables</li>
+                <li>DAX formulas for advanced calculations</li>
+                <li>Available in Excel 2013+ (some editions)</li>
+            </ul>
+
+            <h3>Pivot Table Best Practices</h3>
+            <div class="tip-box">
+                <ul>
+                    <li>Use tables as source data for auto-expansion</li>
+                    <li>Avoid blank rows/columns in source data</li>
+                    <li>Use clear, descriptive headers</li>
+                    <li>Refresh after source data changes (Alt+F5)</li>
+                    <li>Document calculated fields</li>
+                    <li>Test calculations with small datasets</li>
+                    <li>Use slicers for better user experience</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="advanced" class="content-section">
+            <h2>🚀 Advanced Features</h2>
+
+            <h3>What-If Analysis</h3>
+
+            <h4>Goal Seek</h4>
+            <p>Find the input value needed to achieve a specific goal</p>
+            <ul>
+                <li>Data tab → What-If Analysis → Goal Seek</li>
+                <li>Set cell: Formula cell with target result</li>
+                <li>To value: Desired result</li>
+                <li>By changing cell: Input cell to adjust</li>
+            </ul>
+
+            <div class="example-box">
+                <h4>Example: Loan Payment</h4>
+                <p>What interest rate gives a monthly payment of $1,000?</p>
+                <p>Set cell: Payment formula | To value: 1000 | By changing: Interest rate cell</p>
+            </div>
+
+            <h4>Data Tables</h4>
+            <p>Show how changing variables affects formula results</p>
+            
+            <p><strong>One-Variable Data Table:</strong></p>
+            <ul>
+                <li>Test one input variable</li>
+                <li>Results in rows or columns</li>
+                <li>Example: Loan payments at different interest rates</li>
+            </ul>
+
+            <p><strong>Two-Variable Data Table:</strong></p>
+            <ul>
+                <li>Test two input variables</li>
+                <li>Results in table format</li>
+                <li>Example: Payments varying by rate AND term</li>
+            </ul>
+
+            <h4>Scenario Manager</h4>
+            <p>Save and compare different sets of input values</p>
+            <ul>
+                <li>Data tab → What-If Analysis → Scenario Manager</li>
+                <li>Create multiple scenarios (Best Case, Worst Case, etc.)</li>
+                <li>Specify changing cells for each scenario</li>
+                <li>Create summary report comparing scenarios</li>
+            </ul>
+
+            <h3>Solver</h3>
+            <p>Find optimal value by changing multiple variables with constraints</p>
+            
+            <h4>Solver Components</h4>
+            <ul>
+                <li><strong>Objective:</strong> Cell to maximize, minimize, or set to value</li>
+                <li><strong>Variable Cells:</strong> Cells that can change</li>
+                <li><strong>Constraints:</strong> Limitations on variables or results</li>
+                <li><strong>Solving Method:</strong> GRG Nonlinear, Simplex LP, Evolutionary</li>
+            </ul>
+
+            <h4>Common Uses</h4>
+            <ul>
+                <li>Resource allocation</li>
+                <li>Production planning</li>
+                <li>Budget optimization</li>
+                <li>Portfolio optimization</li>
+                <li>Scheduling</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Note:</strong> Solver is an add-in. Enable it: File → Options → Add-ins → Go (Excel Add-ins) → Check Solver Add-in
+            </div>
+
+            <h3>Power Query</h3>
+            <p>Transform and combine data from multiple sources</p>
+
+            <h4>Key Features</h4>
+            <ul>
+                <li>Import from various sources (files, databases, web)</li>
+                <li>Clean and transform data</li>
+                <li>Combine multiple tables</li>
+                <li>Create reusable transformations</li>
+                <li>Refresh to update with source changes</li>
+            </ul>
+
+            <h4>Common Transformations</h4>
+            <ul>
+                <li>Remove/keep columns</li>
+                <li>Filter rows</li>
+                <li>Split/merge columns</li>
+                <li>Change data types</li>
+                <li>Replace values</li>
+                <li>Pivot/unpivot columns</li>
+                <li>Group by and aggregate</li>
+                <li>Append queries (union)</li>
+                <li>Merge queries (join)</li>
+            </ul>
+
+            <h3>Array Formulas (Legacy)</h3>
+            <p>Formulas that perform multiple calculations on arrays</p>
+
+            <h4>Entering Array Formulas</h4>
+            <ul>
+                <li>Type formula</li>
+                <li>Press Ctrl+Shift+Enter (not just Enter)</li>
+                <li>Excel adds curly braces { } around formula</li>
+                <li>Don't type braces manually</li>
+            </ul>
+
+            <div class="formula-box">
+                {=SUM(A1:A10*B1:B10)} - Multiply corresponding elements and sum<br>
+                {=MAX(IF(A1:A10="Yes",B1:B10))} - Max value where condition is met
+            </div>
+
+            <div class="tip-box">
+                <strong>Modern Excel:</strong> Dynamic arrays (FILTER, SORT, UNIQUE) replace many legacy array formulas and don't require Ctrl+Shift+Enter
+            </div>
+
+            <h3>Named Ranges</h3>
+            <p>Assign names to cells or ranges for easier reference</p>
+
+            <h4>Creating Named Ranges</h4>
+            <ul>
+                <li>Select range</li>
+                <li>Click Name Box (left of formula bar)</li>
+                <li>Type name and press Enter</li>
+                <li>Or: Formulas tab → Define Name</li>
+            </ul>
+
+            <h4>Naming Rules</h4>
+            <ul>
+                <li>Start with letter or underscore</li>
+                <li>No spaces (use underscore)</li>
+                <li>Not same as cell reference (e.g., "A1")</li>
+                <li>Max 255 characters</li>
+            </ul>
+
+            <h4>Dynamic Named Ranges</h4>
+            <div class="formula-box">
+                =OFFSET($A$1,0,0,COUNTA($A:$A),1)<br>
+                Automatically expands as data is added to column A
+            </div>
+
+            <h3>Form Controls</h3>
+            <p>Add interactive elements to worksheets</p>
+
+            <h4>Control Types</h4>
+            <table>
+                <tr>
+                    <th>Control</th>
+                    <th>Use</th>
+                </tr>
+                <tr>
+                    <td>Button</td>
+                    <td>Run macros</td>
+                </tr>
+                <tr>
+                    <td>Combo Box</td>
+                    <td>Dropdown selection</td>
+                </tr>
+                <tr>
+                    <td>Check Box</td>
+                    <td>True/False selection</td>
+                </tr>
+                <tr>
+                    <td>Spin Button</td>
+                    <td>Increment/decrement values</td>
+                </tr>
+                <tr>
+                    <td>List Box</td>
+                    <td>Multiple selections</td>
+                </tr>
+                <tr>
+                    <td>Option Button</td>
+                    <td>Mutually exclusive choices</td>
+                </tr>
+                <tr>
+                    <td>Group Box</td>
+                    <td>Group controls</td>
+                </tr>
+                <tr>
+                    <td>Scroll Bar</td>
+                    <td>Select value in range</td>
+                </tr>
+            </table>
+
+            <h4>Adding Controls</h4>
+            <ol>
+                <li>Developer tab → Insert → Form Controls</li>
+                <li>Click control type</li>
+                <li>Draw on worksheet</li>
+                <li>Right-click → Format Control</li>
+                <li>Link to cell for output</li>
+            </ol>
+
+            <h3>Protection</h3>
+
+            <h4>Protect Worksheet</h4>
+            <ul>
+                <li>Review tab → Protect Sheet</li>
+                <li>Set password (optional)</li>
+                <li>Choose what users can do:
+                    <ul>
+                        <li>Select locked/unlocked cells</li>
+                        <li>Format cells</li>
+                        <li>Insert/delete rows or columns</li>
+                        <li>Sort, filter, use pivot tables</li>
+                    </ul>
+                </li>
+                <li>Unlock specific cells: Format Cells → Protection → Uncheck Locked</li>
+            </ul>
+
+            <h4>Protect Workbook</h4>
+            <ul>
+                <li>Review tab → Protect Workbook</li>
+                <li>Prevent adding/deleting/renaming sheets</li>
+                <li>Prevent viewing hidden sheets</li>
+            </ul>
+
+            <h4>File Protection</h4>
+            <ul>
+                <li>File → Info → Protect Workbook</li>
+                <li>Options:
+                    <ul>
+                        <li>Mark as Final</li>
+                        <li>Encrypt with Password</li>
+                        <li>Restrict Access</li>
+                        <li>Add Digital Signature</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Custom Views</h3>
+            <p>Save display and print settings for quick switching</p>
+            <ul>
+                <li>View tab → Custom Views</li>
+                <li>Save current view with name</li>
+                <li>Include: Hidden rows/columns, filter settings, display settings</li>
+                <li>Switch between views instantly</li>
+            </ul>
+
+            <h3>Templates</h3>
+            <p>Save workbooks as templates for reuse</p>
+            
+            <h4>Creating Templates</h4>
+            <ol>
+                <li>Create and format workbook</li>
+                <li>File → Save As</li>
+                <li>Save as type: Excel Template (.xltx)</li>
+                <li>Save to Templates folder</li>
+            </ol>
+
+            <h4>Using Templates</h4>
+            <ul>
+                <li>File → New → Personal or Office templates</li>
+                <li>Creates new workbook based on template</li>
+                <li>Original template unchanged</li>
+            </ul>
+        </div>
+
+        <div id="macros" class="content-section">
+            <h2>⚙️ Macros & VBA</h2>
+
+            <h3>What are Macros?</h3>
+            <p>Recorded or written sequences of commands that automate repetitive tasks</p>
+
+            <h3>Enabling Developer Tab</h3>
+            <ol>
+                <li>File → Options</li>
+                <li>Customize Ribbon</li>
+                <li>Check "Developer" in right column</li>
+                <li>Click OK</li>
+            </ol>
+
+            <h3>Recording Macros</h3>
+
+            <h4>Steps to Record</h4>
+            <ol>
+                <li>Developer tab → Record Macro</li>
+                <li>Give macro a name (no spaces)</li>
+                <li>Optionally assign shortcut key (Ctrl + letter)</li>
+                <li>Choose where to store:
+                    <ul>
+                        <li>This Workbook</li>
+                        <li>New Workbook</li>
+                        <li>Personal Macro Workbook (available in all workbooks)</li>
+                    </ul>
+                </li>
+                <li>Add description</li>
+                <li>Click OK</li>
+                <li>Perform actions to record</li>
+                <li>Developer tab → Stop Recording</li>
+            </ol>
+
+            <h4>Recording Tips</h4>
+            <div class="tip-box">
+                <ul>
+                    <li>Plan your steps before recording</li>
+                    <li>Use relative references if needed</li>
+                    <li>Avoid unnecessary clicks</li>
+                    <li>Use keyboard shortcuts for cleaner code</li>
+                    <li>Test in a copy of your workbook</li>
+                </ul>
+            </div>
+
+            <h3>Running Macros</h3>
+            <ul>
+                <li>Developer tab → Macros (or Alt+F8)</li>
+                <li>Select macro and click Run</li>
+                <li>Or use assigned shortcut key</li>
+                <li>Or assign to button/shape</li>
+            </ul>
+
+            <h3>Macro Security</h3>
+            <p>Control whether macros can run</p>
+            
+            <h4>Security Levels</h4>
+            <ul>
+                <li><strong>Disable all macros without notification:</strong> All macros blocked</li>
+                <li><strong>Disable all macros with notification:</strong> Macros disabled, can enable manually</li>
+                <li><strong>Disable all macros except digitally signed:</strong> Only trusted macros</li>
+                <li><strong>Enable all macros:</strong> All macros run (not recommended)</li>
+            </ul>
+
+            <p>Change settings: Developer tab → Macro Security</p>
+
+            <h3>Introduction to VBA</h3>
+            <p>Visual Basic for Applications - programming language for Excel automation</p>
+
+            <h4>Opening VBA Editor</h4>
+            <ul>
+                <li>Developer tab → Visual Basic</li>
+                <li>Or press Alt+F11</li>
+            </ul>
+
+            <h4>VBA Editor Components</h4>
+            <ul>
+                <li><strong>Project Explorer:</strong> Shows workbooks and modules</li>
+                <li><strong>Properties Window:</strong> Object properties</li>
+                <li><strong>Code Window:</strong> Write and edit code</li>
+                <li><strong>Immediate Window:</strong> Test code snippets (Ctrl+G)</li>
+            </ul>
+
+            <h3>Basic VBA Concepts</h3>
+
+            <h4>Objects</h4>
+            <p>Things you can manipulate (Workbook, Worksheet, Range, Cell)</p>
+            <div class="formula-box">
+                Workbooks("Book1.xlsx")<br>
+                Worksheets("Sheet1")<br>
+                Range("A1")<br>
+                Cells(1, 1)
+            </div>
+
+            <h4>Properties</h4>
+            <p>Characteristics of objects</p>
+            <div class="formula-box">
+                Range("A1").Value = 100<br>
+                Range("A1").Font.Bold = True<br>
+                Range("A1").Interior.Color = RGB(255, 0, 0)
+            </div>
+
+            <h4>Methods</h4>
+            <p>Actions you can perform on objects</p>
+            <div class="formula-box">
+                Range("A1").Clear<br>
+                Range("A1:A10").Sort<br>
+                Worksheets("Sheet1").Delete
+            </div>
+
+            <h3>Common VBA Structures</h3>
+
+            <h4>Variables</h4>
+            <div class="formula-box">
+                Dim myNumber As Integer<br>
+                Dim myText As String<br>
+                Dim myRange As Range<br>
+                Dim mySheet As Worksheet<br><br>
+                myNumber = 10<br>
+                myText = "Hello"<br>
+                Set myRange = Range("A1:B10")<br>
+                Set mySheet = Worksheets("Sheet1")
+            </div>
+
+            <h4>If Statements</h4>
+            <div class="formula-box">
+                If Range("A1").Value > 10 Then<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Range("B1").Value = "High"<br>
+                ElseIf Range("A1").Value > 5 Then<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Range("B1").Value = "Medium"<br>
+                Else<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Range("B1").Value = "Low"<br>
+                End If
+            </div>
+
+            <h4>For Loops</h4>
+            <div class="formula-box">
+                For i = 1 To 10<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Cells(i, 1).Value = i * 2<br>
+                Next i<br><br>
+                For Each cell In Range("A1:A10")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;cell.Value = cell.Value * 2<br>
+                Next cell
+            </div>
+
+            <h4>Do While Loops</h4>
+            <div class="formula-box">
+                Do While Range("A1").Value < 100<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Range("A1").Value = Range("A1").Value + 1<br>
+                Loop
+            </div>
+
+            <h3>Useful VBA Examples</h3>
+
+            <h4>Message Box</h4>
+            <div class="formula-box">
+                Sub ShowMessage()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;MsgBox "Task completed!", vbInformation, "Success"<br>
+                End Sub
+            </div>
+
+            <h4>Input Box</h4>
+            <div class="formula-box">
+                Sub GetInput()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Dim userName As String<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;userName = InputBox("Enter your name:")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Range("A1").Value = userName<br>
+                End Sub
+            </div>
+
+            <h4>Loop Through Rows</h4>
+            <div class="formula-box">
+                Sub ProcessRows()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Dim lastRow As Long<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Dim i As Long<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;lastRow = Cells(Rows.Count, 1).End(xlUp).Row<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;For i = 2 To lastRow<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cells(i, 3).Value = Cells(i, 1).Value * Cells(i, 2).Value<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Next i<br>
+                End Sub
+            </div>
+
+            <h4>Format Cells</h4>
+            <div class="formula-box">
+                Sub FormatData()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;With Range("A1:D10")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Font.Bold = True<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Interior.Color = RGB(200, 200, 255)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Borders.LineStyle = xlContinuous<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;End With<br>
+                End Sub
+            </div>
+
+            <h4>Copy Data Between Sheets</h4>
+            <div class="formula-box">
+                Sub CopyData()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Worksheets("Sheet1").Range("A1:B10").Copy _<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Destination:=Worksheets("Sheet2").Range("A1")<br>
+                End Sub
+            </div>
+
+            <h4>Delete Empty Rows</h4>
+            <div class="formula-box">
+                Sub DeleteEmptyRows()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Dim i As Long<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;For i = Cells(Rows.Count, 1).End(xlUp).Row To 1 Step -1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If Application.WorksheetFunction.CountA(Rows(i)) = 0 Then<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rows(i).Delete<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End If<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Next i<br>
+                End Sub
+            </div>
+
+            <h3>Event Procedures</h3>
+            <p>Code that runs automatically when events occur</p>
+
+            <h4>Worksheet Events</h4>
+            <div class="formula-box">
+                Private Sub Worksheet_Change(ByVal Target As Range)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;' Runs when any cell changes<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;If Target.Address = "$A$1" Then<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MsgBox "Cell A1 was changed!"<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;End If<br>
+                End Sub
+            </div>
+
+            <h4>Workbook Events</h4>
+            <div class="formula-box">
+                Private Sub Workbook_Open()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;' Runs when workbook opens<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;MsgBox "Welcome!"<br>
+                End Sub<br><br>
+                Private Sub Workbook_BeforeClose(Cancel As Boolean)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;' Runs before workbook closes<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;If MsgBox("Save changes?", vbYesNo) = vbYes Then<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ThisWorkbook.Save<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;End If<br>
+                End Sub
+            </div>
+
+            <h3>Debugging VBA</h3>
+            
+            <h4>Debug Tools</h4>
+            <ul>
+                <li><strong>Breakpoints:</strong> Click left margin or press F9 to pause execution</li>
+                <li><strong>Step Through:</strong> F8 to execute one line at a time</li>
+                <li><strong>Watch Window:</strong> Monitor variable values</li>
+                <li><strong>Immediate Window:</strong> Test code and print values (Debug.Print)</li>
+                <li><strong>Locals Window:</strong> View all local variables</li>
+            </ul>
+
+            <h4>Error Handling</h4>
+            <div class="formula-box">
+                Sub SafeCode()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;On Error GoTo ErrorHandler<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;' Your code here<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Exit Sub<br>
+                ErrorHandler:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;MsgBox "Error: " & Err.Description<br>
+                End Sub
+            </div>
+        </div>
+
+        <div id="tips" class="content-section">
+            <h2>💡 Pro Tips & Tricks</h2>
+
+            <h3>Productivity Tips</h3>
+
+            <h4>Quick Analysis Tool</h4>
+            <ul>
+                <li>Select data and click Quick Analysis button (or Ctrl+Q)</li>
+                <li>Instant access to: Formatting, Charts, Totals, Tables, Sparklines</li>
+                <li>Hover to preview, click to apply</li>
+            </ul>
+
+            <h4>AutoFill Magic</h4>
+            <ul>
+                <li><strong>Double-click fill handle:</strong> Auto-fill down to last row with adjacent data</li>
+                <li><strong>Drag with right mouse button:</strong> See fill options</li>
+                <li><strong>Ctrl+drag:</strong> Copy instead of fill series</li>
+                <li><strong>Custom lists:</strong> Create your own fill series (File → Options → Advanced)</li>
+            </ul>
+
+            <h4>Flash Fill Shortcuts</h4>
+            <ul>
+                <li>Start typing pattern in adjacent column</li>
+                <li>Excel suggests completion</li>
+                <li>Press Enter to accept or Ctrl+E to trigger</li>
+                <li>Great for: splitting names, extracting data, reformatting</li>
+            </ul>
+
+            <h4>Camera Tool</h4>
+            <ul>
+                <li>Add to Quick Access Toolbar</li>
+                <li>Select range, click Camera</li>
+                <li>Click elsewhere to paste live picture</li>
+                <li>Updates automatically when source changes</li>
+                <li>Great for dashboards</li>
+            </ul>
+
+            <h3>Formula Tips</h3>
+
+            <h4>Formula Auditing</h4>
+            <ul>
+                <li><strong>Trace Precedents:</strong> Show which cells affect active cell</li>
+                <li><strong>Trace Dependents:</strong> Show which cells are affected by active cell</li>
+                <li><strong>Show Formulas:</strong> Ctrl+` to display all formulas</li>
+                <li><strong>Evaluate Formula:</strong> Step through complex formulas</li>
+                <li><strong>Error Checking:</strong> Find and fix formula errors</li>
+            </ul>
+
+            <h4>Array Formula Alternatives</h4>
+            <p>Instead of complex array formulas, use:</p>
+            <ul>
+                <li>SUMPRODUCT for conditional sums</li>
+                <li>FILTER, SORT, UNIQUE (modern Excel)</li>
+                <li>Helper columns for clarity</li>
+                <li>Pivot tables for aggregations</li>
+            </ul>
+
+            <h4>INDIRECT for Dynamic References</h4>
+            <div class="formula-box">
+                =SUM(INDIRECT(A1 & "1:" & A1 & "10"))<br>
+                If A1 contains "B", sums B1:B10
+            </div>
+
+            <h4>OFFSET for Flexible Ranges</h4>
+            <div class="formula-box">
+                =SUM(OFFSET(A1,0,0,COUNT(A:A),1))<br>
+                Sums only cells with values in column A
+            </div>
+
+            <h3>Data Tips</h3>
+
+            <h4>Remove Duplicates vs Unique Values</h4>
+            <ul>
+                <li><strong>Remove Duplicates:</strong> Permanently deletes duplicate rows</li>
+                <li><strong>Advanced Filter:</strong> Shows unique values without deleting</li>
+                <li><strong>UNIQUE function:</strong> Returns unique values in new location</li>
+            </ul>
+
+            <h4>Text to Columns Tricks</h4>
+            <ul>
+                <li>Use to convert text to numbers: Text to Columns → Finish</li>
+                <li>Remove leading/trailing spaces</li>
+                <li>Change date formats</li>
+            </ul>
+
+            <h4>Paste Special Options</h4>
+            <table>
+                <tr>
+                    <th>Option</th>
+                    <th>Shortcut</th>
+                    <th>Use</th>
+                </tr>
+                <tr>
+                    <td>Values</td>
+                    <td>Alt+E+S+V</td>
+                    <td>Remove formulas, keep results</td>
+                </tr>
+                <tr>
+                    <td>Formats</td>
+                    <td>Alt+E+S+T</td>
+                    <td>Copy only formatting</td>
+                </tr>
+                <tr>
+                    <td>Transpose</td>
+                    <td>Alt+E+S+E</td>
+                    <td>Flip rows/columns</td>
+                </tr>
+                <tr>
+                    <td>Add</td>
+                    <td>Alt+E+S+D</td>
+                    <td>Add copied values to existing</td>
+                </tr>
+                <tr>
+                    <td>Multiply</td>
+                    <td>Alt+E+S+M</td>
+                    <td>Multiply existing by copied values</td>
+                </tr>
+            </table>
+
+            <h4>Go To Special</h4>
+            <p>Ctrl+G → Special (or F5 → Special)</p>
+            <ul>
+                <li><strong>Blanks:</strong> Select all empty cells</li>
+                <li><strong>Constants:</strong> Select all non-formula cells</li>
+                <li><strong>Formulas:</strong> Select all formula cells</li>
+                <li><strong>Visible cells only:</strong> Skip hidden rows/columns</li>
+                <li><strong>Current region:</strong> Select contiguous data area</li>
+            </ul>
+
+            <h3>Formatting Tips</h3>
+
+            <h4>Format Painter Plus</h4>
+            <ul>
+                <li>Single click Format Painter: Apply once</li>
+                <li>Double-click Format Painter: Apply multiple times</li>
+                <li>Press Esc to cancel</li>
+            </ul>
+
+            <h4>Custom Number Formats</h4>
+            <div class="formula-box">
+                [Blue]#,##0;[Red]-#,##0;0;"@" - Blue positive, red negative<br>
+                #,##0,,"M" - Display in millions with M suffix<br>
+                [$-409]mmm d, yyyy - US date format<br>
+                [h]:mm - Hours over 24
+            </div>
+
+            <h4>Conditional Formatting with Formulas</h4>
+            <div class="formula-box">
+                =MOD(ROW(),2)=0 - Alternate row colors<br>
+                =$A1=MAX($A:$A) - Highlight max value<br>
+                =COUNTIF($A$1:$A1,$A1)>1 - Highlight duplicates<br>
+                =AND($B1>100,$C1="Yes") - Multiple conditions
+            </div>
+
+            <h3>Chart Tips</h3>
+
+            <h4>Dynamic Chart Titles</h4>
+            <ul>
+                <li>Click chart title</li>
+                <li>Type = in formula bar</li>
+                <li>Click cell with title text</li>
+                <li>Press Enter</li>
+            </ul>
+
+            <h4>Combo Chart Secrets</h4>
+            <ul>
+                <li>Right-click series → Change Series Chart Type</li>
+                <li>Use secondary axis for different scales</li>
+                <li>Combine line and column for trends vs. values</li>
+            </ul>
+
+            <h4>Chart Data Selection</h4>
+            <ul>
+                <li>Right-click chart → Select Data</li>
+                <li>Switch Row/Column to flip axes</li>
+                <li>Hidden and Empty Cells settings control gaps</li>
+            </ul>
+
+            <h3>Performance Tips</h3>
+
+            <h4>Speed Up Calculations</h4>
+            <ul>
+                <li>Use manual calculation: Formulas tab → Calculation Options → Manual</li>
+                <li>Press F9 to calculate when ready</li>
+                <li>Avoid volatile functions (NOW, TODAY, RAND, OFFSET, INDIRECT)</li>
+                <li>Use tables instead of full column references</li>
+                <li>Minimize array formulas</li>
+            </ul>
+
+            <h4>Reduce File Size</h4>
+            <ul>
+                <li>Delete unused sheets</li>
+                <li>Clear unused cells (especially formatting)</li>
+                <li>Remove unnecessary formulas</li>
+                <li>Compress pictures (Picture Tools → Compress)</li>
+                <li>Save as binary format (.xlsb) for large files</li>
+            </ul>
+
+            <h3>Collaboration Tips</h3>
+
+            <h4>Comments vs Notes</h4>
+            <ul>
+                <li><strong>Comments:</strong> Threaded discussions (newer Excel)</li>
+                <li><strong>Notes:</strong> Traditional text notes (formerly "Comments")</li>
+                <li>Review tab to access both</li>
+            </ul>
+
+            <h4>Track Changes</h4>
+            <ul>
+                <li>Review tab → Track Changes</li>
+                <li>See who changed what and when</li>
+                <li>Accept or reject changes</li>
+                <li>Note: Not available in Excel 365 with co-authoring</li>
+            </ul>
+
+            <h4>Share Workbook</h4>
+            <ul>
+                <li>File → Share or Save to OneDrive/SharePoint</li>
+                <li>Multiple users can edit simultaneously</li>
+                <li>See others' cursors and changes in real-time</li>
+            </ul>
+
+            <h3>Hidden Excel Features</h3>
+
+            <h4>Watch Window</h4>
+            <ul>
+                <li>Formulas tab → Watch Window</li>
+                <li>Monitor specific cells while working elsewhere</li>
+                <li>See values update in real-time</li>
+            </ul>
+
+            <h4>Inquire Add-in</h4>
+            <ul>
+                <li>Compare two workbooks</li>
+                <li>Analyze relationships</li>
+                <li>Diagram cell relationships</li>
+            </ul>
+
+            <h4>3D References</h4>
+            <div class="formula-box">
+                =SUM(Sheet1:Sheet10!A1)<br>
+                Sums A1 across multiple sheets
+            </div>
+
+            <h4>Name Box Navigation</h4>
+            <ul>
+                <li>Type range address in Name Box</li>
+                <li>Press Enter to jump there</li>
+                <li>Works across sheets: Sheet2!A1</li>
+            </ul>
+
+            <h3>Keyboard Ninja</h3>
+
+            <h4>Selection Shortcuts</h4>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+End</span>
+                    <span>Select to last used cell</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+O</span>
+                    <span>Select cells with comments</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Alt+;</span>
+                    <span>Select visible cells only</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+/</span>
+                    <span>Select current array</span>
+                </div>
+            </div>
+
+            <h4>Formatting Shortcuts</h4>
+            <div class="shortcut-grid">
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+&</span>
+                    <span>Apply outline border</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+_</span>
+                    <span>Remove all borders</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+9</span>
+                    <span>Hide rows</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+0</span>
+                    <span>Hide columns</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+9</span>
+                    <span>Unhide rows</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="shortcut-key">Ctrl+Shift+0</span>
+                    <span>Unhide columns</span>
+                </div>
+            </div>
+
+            <h3>Power User Habits</h3>
+            <div class="tip-box">
+                <ul>
+                    <li>Always use tables for structured data</li>
+                    <li>Name your ranges for clarity</li>
+                    <li>Document complex formulas with comments</li>
+                    <li>Use data validation to prevent errors</li>
+                    <li>Create templates for recurring tasks</li>
+                    <li>Learn 10 keyboard shortcuts per week</li>
+                    <li>Use helper columns instead of nested formulas</li>
+                    <li>Freeze panes for better navigation</li>
+                    <li>Regular backups and version control</li>
+                    <li>Test formulas with small datasets first</li>
+                </ul>
+            </div>
+
+            <h3>Common Mistakes to Avoid</h3>
+            <div class="warning-box">
+                <ul>
+                    <li>Not locking formulas (use $ for absolute references)</li>
+                    <li>Hardcoding values instead of referencing cells</li>
+                    <li>Merging cells (use Center Across Selection instead)</li>
+                    <li>Not protecting sheets with formulas</li>
+                    <li>Using full column references (A:A) when not needed</li>
+                    <li>Ignoring error messages</li>
+                    <li>Not backing up important files</li>
+                    <li>Inconsistent data entry (dates, numbers)</li>
+                    <li>Too many volatile functions (NOW, RAND, OFFSET)</li>
+                    <li>Not documenting your work</li>
+                </ul>
+            </div>
+
+            <h3>Learning Resources</h3>
+            <ul>
+                <li><strong>Excel Help:</strong> Press F1 or search in Help box</li>
+                <li><strong>Microsoft Support:</strong> support.microsoft.com/excel</li>
+                <li><strong>Practice Files:</strong> Create sample data to experiment</li>
+                <li><strong>YouTube:</strong> Visual tutorials for specific tasks</li>
+                <li><strong>Excel Forums:</strong> MrExcel, Chandoo, Reddit r/excel</li>
+                <li><strong>Templates:</strong> Office.com has thousands of free templates</li>
+            </ul>
+        </div>
+
+        <footer>
+            <h3>🎓 Excel Mastery Achieved!</h3>
+            <p>You now have access to comprehensive Excel knowledge. Practice regularly, experiment with features, and don't be afraid to make mistakes. Excel mastery comes from hands-on experience.</p>
+            <p style="margin-top: 20px;"><strong>Remember:</strong> The best way to learn Excel is by solving real problems. Start with simple tasks and gradually increase complexity.</p>
+            <p style="margin-top: 20px; color: #667eea; font-weight: bold;">Happy Spreadsheeting! 📊✨</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            if (searchTerm.length < 2) return;
+
+            const sections = document.querySelectorAll('.content-section');
+            let found = false;
+
+            sections.forEach(section => {
+                const content = section.textContent.toLowerCase();
+                if (content.includes(searchTerm) && !found) {
+                    showSection(section.id);
+                    found = true;
+                    
+                    setTimeout(() => {
+                        const walker = document.createTreeWalker(
+                            section,
+                            NodeFilter.SHOW_TEXT,
+                            null,
+                            false
+                        );
+                        
+                        let node;
+                        while(node = walker.nextNode()) {
+                            if (node.textContent.toLowerCase().includes(searchTerm)) {
+                                node.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                break;
+                            }
+                        }
+                    }, 100);
+                }
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('searchBox').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
